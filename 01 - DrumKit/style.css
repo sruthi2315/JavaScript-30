@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
+		*
+		{
+			margin : 0px;
+			padding :0px;
+			box-sizing: border-box;
+			font-family: 'Langar', cursive;
+		}
+		body
+		{
+			background: url('background.jpeg');
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		.keys
+		{
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			flex: 1;
+		}
+		.key
+		{
+			background-image: linear-gradient(to bottom, black, grey);
+			border-radius: 8px;
+			margin: 10px 16px;
+			font-size: 25px;
+			padding : 0.3rem;
+			width: 100px;
+			text-align: center;
+			color: black;
+			transition: all 1s ease;
+			box-shadow: 10px 10px rgba(1,43,84);
+		}
+		.key kbd
+		{
+			text-shadow: 3px 3px 3px grey;
+		}
+		.linked
+		{
+			background: #e0f7fa;
+		}
+		.playing
+		{
+			transform: scale(1.3);
+		}
+        .playing ~ .key
+        {
+        	filter: blur(5px);
+        }
+		kbd
+		{
+			display: block;
+			font-size: 50px;
+		}
+		.sound
+		{
+			font-size: 1rem;
+			font-weight: bolder;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+		.p
+		{
+			margin-top: 20px;
+			font-size: 4em;
+			font-weight: bolder;
+			letter-spacing: 2px;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+		    align-items: center;
+			background: linear-gradient(90deg,#012b54,#fff,#012b54);
+			background-repeat: no-repeat;
+			background-size: 80%;
+			animation : animate 10s linear infinite;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: rgba(255,255,255,0);
+		}
+		@keyframes animate {
+			0%{
+				background-position: -500%;
+			}
+			100%
+			{
+				background-position: 500%;
+			}
+		}

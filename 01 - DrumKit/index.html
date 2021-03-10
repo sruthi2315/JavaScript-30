@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drumkit</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="p"><p>DRUMKIT PROJECT</p></div>
+	<div class="keys">
+		<div data-key="65" class="key" ><div class="linked">
+			<kbd>A</kbd>
+			<span class="sound">clap</span></div>
+		</div>
+		<div data-key="83" class="key"><div class="linked">
+			<kbd>S</kbd>
+			<span class="sound">hihat</span></div>
+		</div>
+		<div data-key="68" class="key"><div class="linked">
+			<kbd>D</kbd>
+			<span class="sound">kick</span></div>
+		</div>
+		<div data-key="70" class="key"><div class="linked">
+			<kbd>F</kbd>
+			<span class="sound">openhat</span></div>
+		</div>
+		<div data-key="71" class="key"><div class="linked">
+			<kbd>G</kbd>
+			<span class="sound">boom</span></div>
+		</div>
+		<div data-key="72" class="key"><div class="linked">
+			<kbd>H</kbd>
+			<span class="sound">ride</span></div>
+		</div>
+		<div data-key="74" class="key"><div class="linked">
+			<kbd>J</kbd>
+			<span class="sound">snare</span></div>
+		</div>
+		<div data-key="75" class="key"><div class="linked">
+			<kbd>K</kbd>
+			<span class="sound">tom</span></div>
+		</div>
+		<div data-key="76" class="key"><div class="linked">
+			<kbd>L</kbd>
+			<span class="sound">tink</span></div>
+		</div>
+	</div>
 
+	<audio data-key="65" src="https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/clap.wav"></audio>
+    <audio data-key="83" src="https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/hihat.wav"></audio>
+    <audio data-key="68" src="https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/kick.wav"></audio>
+    <audio data-key="70" src="https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/openhat.wav"></audio>
+    <audio data-key="71" src="https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/boom.wav"></audio>
+    <audio data-key="72" src="https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/ride.wav"></audio>
+    <audio data-key="74" src="https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/snare.wav"></audio>
+    <audio data-key="75" src="https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/tom.wav"></audio>
+    <audio data-key="76" src="https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/tink.wav"></audio>
+
+
+<script>
+	
+	function playSound(e) {
+		const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+		const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+		if (!audio) return; 
+		audio.currentTime = 0;
+		audio.play();
+		key.classList.add("playing");
+	}
+	function removeTransition(e) {
+		if (e.propertyName !== 'transform') return; 
+		this.classList.remove('playing');
+	}
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+window.addEventListener('keydown', playSound);
+
+</script>
+</body>
+</html>
