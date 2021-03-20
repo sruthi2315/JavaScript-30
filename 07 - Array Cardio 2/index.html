@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array Cardio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+      *
+      {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: 'Fredoka One', cursive;
+      }
+      p 
+      {
+        font-size: 20px;
+        padding: 10px;
+        text-shadow: 1px 1px green;
+      }
+    </style>
+</head>
+<body>
+	<p><em>Hello have a look at the JavaScript Console</em> &#128131; &#128073;</p>
+
+  <script>
+
+    const people = [
+      { name: 'John', year: 1988 },
+      { name: 'Kavya', year: 1986 },
+      { name: 'Swetha', year: 1970 },
+      { name: 'Prem', year: 2015 }
+    ];
+
+    const comments = [
+      { text: 'Love this!', id: 523423 },
+      { text: 'Super good', id: 823423 },
+      { text: 'You are the best', id: 2039842 },
+      { text: 'Ramen is my fav food ever', id: 123523 },
+      { text: 'Nice Nice Nice!', id: 542328 }
+    ];
+
+    const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year >= 19);
+    console.log({isAdult});
+
+    const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
+    console.log({allAdults});
+
+    const comment = comments.find(comment => comment.id === 823423);
+    console.log(comment);
+
+    const index = comments.findIndex(comment => comment.id === 823423);
+    console.log(index);
+
+    const newComments = [
+      ...comments.slice(0, index),
+      ...comments.slice(index + 1)
+    ];
+
+  </script>
+</body>
+</html>
