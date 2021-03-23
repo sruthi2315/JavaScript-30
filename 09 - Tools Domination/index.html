@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML5 Canvas</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <style>
+    	*
+    	{
+    		margin: 0px;
+    		padding: 0px;
+    		box-sizing: border-box;
+    		font-family: 'Bangers', cursive;
+    	}
+    	p
+    	{
+    		text-align: center;
+    		margin-top: 30px;
+    		letter-spacing: 2px;
+    		font-size: 20px;
+    	}
+    </style>
+</head>
+<body>
+	<p onClick="makeGreen()">CLICK ME TO CHANGE MY COLOR AND FONTSIZE :)</p>
 
+  <script>
+    const dogs = [{ name: 'Shaddow', age: 4 }, { name: 'Pinky', age: 8 }];
+    
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = 'green';
+      p.style.fontSize = '50px';
+    }
+
+    // REGULAR
+    console.log('hello');
+
+    // INTERPOLATED
+    console.log('Hello I am a %s string!', '&#128516;');
+
+    // STYLED
+    console.log('%c I am some great text :)', 'font-size:20px; background:pink; text-shadow: 2px 2px 0 blue')
+
+    // WARNING !!
+    console.warn('OH NOOO');
+
+    // ERROR
+    console.error('Shit!');
+
+    // INFO
+    console.info('Spider webs were used as bandages in ancient times');
+
+    // TESTING
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('Hello'), 'That is wrong!');
+
+    // CLEARING
+    //console.clear();
+
+    // VIEWING DOM ELEMENTS
+    console.log(p);
+    console.dir(p);
+
+    // GROUPING TOGETHER
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 3} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
+
+    // COUNTING
+    console.count('Coimbatore');
+    console.count('Coimbatore');
+    console.count('Chennai');
+    console.count('Coimbatore');
+    console.count('Coimbatore');
+    console.count('Coimbatore');
+    console.count('Chennai');
+    console.count('Coimbatore');
+    console.count('Coimbatore');
+    console.count('Chennai');
+    console.count('Chennai');
+    console.count('Chennai');
+    console.count('Coimbatore');
+
+    // TIMING
+    console.time('fetching data');
+    fetch('https://api.github.com/users/sruthi2315')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+    console.table(dogs);
+
+  </script>
+</body>
+</html>
